@@ -50,10 +50,10 @@ function addBook(e) {
   });
 
   localStorage.setItem('store', JSON.stringify(store));
-   display();
+  display();
 
   inputTitle.value = '';
   inputAuthor.value = '';
 }
 
- form.addEventListener('submit', addBook);
+form.addEventListener('submit', addBook);
