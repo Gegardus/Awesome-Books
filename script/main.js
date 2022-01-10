@@ -49,6 +49,8 @@ function addBook(e) {
     author: inputAuthor.value,
   });
 
+  inputTitle.value = '';
+  inputAuthor.value = '';
   localStorage.setItem('store', JSON.stringify(store));
   display();
 
