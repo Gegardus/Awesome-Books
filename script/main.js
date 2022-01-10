@@ -42,18 +42,18 @@ function display() {
 
 display();
 
-function addBook(e) { 
+function addBook(e) {
   e.preventDefault();
   store.push({
     title: inputTitle.value,
     author: inputAuthor.value,
   });
 
-  inputTitle.value = '';
-  inputAuthor.value = '';
   localStorage.setItem('store', JSON.stringify(store));
   display();
 
+  inputTitle.value = '';
+  inputAuthor.value = '';
 }
 
 form.addEventListener('submit', addBook);
