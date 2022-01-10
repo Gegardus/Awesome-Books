@@ -15,7 +15,7 @@ function removeBook(book) {
   Object.keys(bookItems).forEach((key) => {
     if (book === key) {
       bookItems[key].remove();
-      store.splice(key, 1);    
+      store.splice(key, 1);
       localStorage.setItem('store', JSON.stringify(store));
     }
   });
@@ -57,4 +57,3 @@ function addBook(e) {
 }
 
  form.addEventListener('submit', addBook);
-
