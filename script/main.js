@@ -15,14 +15,14 @@ function removeBook(book) {
   Object.keys(bookItems).forEach((key) => {
     if (book === key) {
       bookItems[key].remove();
-      store.splice(key, 1);
+      store.splice(key, 1);    
       localStorage.setItem('store', JSON.stringify(store));
     }
   });
 }
 
 function display() {
-  shelf.innerHTML = '';
+  bookItem.innerHTML = '';
   store.forEach((currentBook) => {
     item.innerHTML = `<p id="book-title">${currentBook.title}</p>
     <p id="book-aurthor">${currentBook.author}</p>
@@ -50,10 +50,11 @@ function addBook(e) {
   });
 
   localStorage.setItem('store', JSON.stringify(store));
-  display();
+   display();
 
   inputTitle.value = '';
   inputAuthor.value = '';
 }
 
-form.addEventListener('submit', addBook);
+ form.addEventListener('submit', addBook);
+

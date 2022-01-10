@@ -20,9 +20,24 @@ Awesome Books
 
 ## Getting Started
 
-To get a local copy, clone from the link below.
+To get a local copy up and running follow these simple example steps:
 
-https://github.com/Gegardus/Conference-Page
+### Prerequisites
+
+clone repo: `https://github.com/Gegardus/Awesome-Books/tree/plain`
+
+then
+`cd Awesome-Books`
+
+### Install
+
+run `npm install` to install dependencies
+
+## Contribute
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Gegardus/Awesome-Books/issues)
 
 ## Author
 
