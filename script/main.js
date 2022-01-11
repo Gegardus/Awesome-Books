@@ -37,10 +37,8 @@ const library = new Book();
 function display() {
   bookItem.innerHTML = '';
   library.store.forEach((currentBook) => {
-    item.innerHTML = `<p id="book-title">${currentBook.title}</p>
-    <p id="book-aurthor">${currentBook.author}</p>
-    <button type="button" class="remove-btn">Remove</button>
-    <hr/>`;
+    item.innerHTML = `<p id="book-aurthor">"<span id="book-title">${currentBook.title}</span>"<span id="by">by</span>${currentBook.author}</p>
+    <button type="button" class="remove-btn">Remove</button>`;
     bookItem.appendChild(item.cloneNode(true));
     shelf.appendChild(bookItem);
   });
