@@ -8,18 +8,17 @@ const form = document.getElementById('form');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 
-
 class Book {
 constructor() {
   this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
 }
  
-addBook() {  
+addBook() {
   this.store.push({
     title: inputTitle.value,
     author: inputAuthor.value,
   });
-  localStorage.setItem('store', JSON.stringify(this.store)); 
+  localStorage.setItem('store', JSON.stringify(this.store));
   inputTitle.value = '';
   inputAuthor.value = '';
 }
@@ -32,7 +31,7 @@ removeBook(book) {
     }
   }
 
-const library = new Book();  
+const library = new Book();
 
 function display() {
   bookItem.innerHTML = '';
