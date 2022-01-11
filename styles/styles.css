@@ -73,18 +73,18 @@ body {
   opacity: 1;
 }
 
-#form button {
-  padding: 8px 20px;
-  border-radius: 0;
-  border: 3px solid #888;
-  cursor: pointer;
-  float: right;
-}
-
 button:hover {
   background-color: #add8e6;
 }
 
 button:active {
   background-color: #ff6347;
+}
+
+#form button {
+  padding: 8px 20px;
+  border-radius: 0;
+  border: 3px solid #888;
+  cursor: pointer;
+  float: right;
 }

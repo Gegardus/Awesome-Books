@@ -9,27 +9,27 @@ const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 
 class Book {
-constructor() {
-  this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
-}
- 
-addBook() {
-  this.store.push({
-    title: inputTitle.value,
-    author: inputAuthor.value,
-  });
-  localStorage.setItem('store', JSON.stringify(this.store));
-  inputTitle.value = '';
-  inputAuthor.value = '';
+  constructor() {
+    this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
 }
 
-removeBook(book) {
-  const title = book.querySelector('#book-title').innerText;
-  book.remove();
-  this.store = this.store.filter((bookItem) => bookItem.title !== title);
-      localStorage.setItem('store', JSON.stringify(this.store));
-    }
+  addBook() {
+    this.store.push({
+      title: inputTitle.value,
+      author: inputAuthor.value,
+    });
+    localStorage.setItem('store', JSON.stringify(this.store));
+    inputTitle.value = '';
+    inputAuthor.value = '';
   }
+
+  removeBook(book) {
+    const title = book.querySelector('#book-title').innerText;
+    book.remove();
+    this.store = this.store.filter((bookItem) => bookItem.title !== title);
+    localStorage.setItem('store', JSON.stringify(this.store));
+  }
+}
 
 const library = new Book();
 
@@ -46,7 +46,7 @@ function display() {
   Object.keys(removeButton).forEach((removeKey) => {
     const btn = removeButton[removeKey];
     btn.addEventListener('click', () => {
-    library.removeBook(btn.parentNode);
+      library.removeBook(btn.parentNode);
     });
   }, false);
 }
