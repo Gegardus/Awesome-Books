@@ -8,22 +8,35 @@ const form = document.getElementById('form');
 const inputTitle = document.getElementById('title');
 const inputAuthor = document.getElementById('author');
 
-const store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
 
-function removeBook(book) {
-  const bookItems = Array.from(document.getElementsByClassName('book'));
-  Object.keys(bookItems).forEach((key) => {
-    if (book === key) {
-      bookItems[key].remove();
-      store.splice(key, 1);
-      localStorage.setItem('store', JSON.stringify(store));
-    }
-  });
+class Book {
+constructor() {
+  this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
 }
+ 
+addBook() {  
+  this.store.push({
+    title: inputTitle.value,
+    author: inputAuthor.value,
+  });
+  localStorage.setItem('store', JSON.stringify(this.store)); 
+  inputTitle.value = '';
+  inputAuthor.value = '';
+}
+
+removeBook(book) {
+  const title = book.querySelector('#book-title').innerText;
+  book.remove();
+  this.store = this.store.filter((bookItem) => bookItem.title !== title);
+      localStorage.setItem('store', JSON.stringify(this.store));
+    }
+  }
+
+const library = new Book();  
 
 function display() {
   bookItem.innerHTML = '';
-  store.forEach((currentBook) => {
+  library.store.forEach((currentBook) => {
     item.innerHTML = `<p id="book-title">${currentBook.title}</p>
     <p id="book-aurthor">${currentBook.author}</p>
     <button type="button" class="remove-btn">Remove</button>
@@ -34,26 +47,12 @@ function display() {
 
   const removeButton = Array.from(document.getElementsByClassName('remove-btn'));
   Object.keys(removeButton).forEach((removeKey) => {
-    removeButton[removeKey].addEventListener('click', () => {
-      removeBook(removeKey);
+    const btn = removeButton[removeKey];
+    btn.addEventListener('click', () => {
+    library.removeBook(btn.parentNode);
     });
   }, false);
 }
 
 display();
 
-function addBook(e) {
-  e.preventDefault();
-  store.push({
-    title: inputTitle.value,
-    author: inputAuthor.value,
-  });
-
-  localStorage.setItem('store', JSON.stringify(store));
-  display();
-
-  inputTitle.value = '';
-  inputAuthor.value = '';
-}
-
-form.addEventListener('submit', addBook);
