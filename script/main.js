@@ -56,4 +56,10 @@ function addBook(e) {
   inputAuthor.value = '';
 }
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  library.addBook();
+  display();
+});
+
 form.addEventListener('submit', addBook);
