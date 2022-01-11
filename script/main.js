@@ -11,7 +11,7 @@ const inputAuthor = document.getElementById('author');
 class Book {
   constructor() {
     this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
-}
+  }
 
   addBook() {
     this.store.push({
