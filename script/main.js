@@ -56,3 +56,8 @@ function display() {
 
 display();
 
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  library.addBook();
+  display();
+});
