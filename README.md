@@ -6,7 +6,9 @@ Awesome Books
 
 > This project presents a basic website that allows users to add/remove books from a list.
 
-![screenshot](./app_screenshot.png)
+![screenshot](./app_screenshot1.png)
+![screenshot](./app_screenshot2.png)
+![screenshot](./app_screenshot3.png)
 
 ## Built With
 
@@ -24,7 +26,7 @@ To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
 
-clone repo: `https://github.com/Gegardus/Awesome-Books/tree/refactor`
+clone repo: `https://github.com/Gegardus/Awesome-Books/tree/nav`
 
 then
 `cd Awesome-Books`
