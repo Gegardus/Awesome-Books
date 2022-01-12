@@ -1,60 +1,61 @@
-const shelf = document.getElementById('shelf');
-const bookItem = document.getElementById('bookItem');
-
-const item = document.createElement('div');
-item.classList.add('book');
-
-const form = document.getElementById('form');
-const inputTitle = document.getElementById('title');
-const inputAuthor = document.getElementById('author');
-
-class Book {
-  constructor() {
-    this.store = localStorage.getItem('store') ? JSON.parse(localStorage.getItem('store')) : [];
+class Books {
+  constructor(savedData) {
+    this.savedData = savedData;
   }
 
-  addBook() {
-    this.store.push({
-      title: inputTitle.value,
-      author: inputAuthor.value,
+  displayBooks() {
+    const booksSection = document.querySelector('#bookItem');
+    booksSection.innerHTML = '';
+    this.savedData.forEach((book, index) => {
+      booksSection.innerHTML += `
+      <div class="book">
+        <h4 class="title">"${book.title}" by ${book.author}</h4>
+        <button class="remove" onclick="removeBook(${index})">Remove</button>
+        </div>
+      `;
     });
-    localStorage.setItem('store', JSON.stringify(this.store));
-    inputTitle.value = '';
-    inputAuthor.value = '';
   }
 
-  removeBook(book) {
-    const title = book.querySelector('#book-title').innerText;
-    book.remove();
-    this.store = this.store.filter((bookItem) => bookItem.title !== title);
-    localStorage.setItem('store', JSON.stringify(this.store));
+  remove(bookId) {
+    if (bookId !== null && bookId !== undefined) {
+      this.savedData.splice(bookId, 1);
+      this.saveBooksToStorage();
+      this.displayBooks();
+    }
+  }
+
+  add(bookTitle, bookAuthor) {
+    const newBook = {
+      title: bookTitle,
+      author: bookAuthor,
+    };
+    this.savedData.push(newBook);
+    this.displayBooks();
+    this.saveBooksToStorage();
+  }
+
+  saveBooksToStorage() {
+    localStorage.setItem('books', JSON.stringify(this.savedData));
   }
 }
 
-const library = new Book();
-
-function display() {
-  bookItem.innerHTML = '';
-  library.store.forEach((currentBook) => {
-    item.innerHTML = `<p id="book-aurthor">"<span id="book-title">${currentBook.title}</span>"<span id="by">by</span>${currentBook.author}</p>
-    <button type="button" class="remove-btn">Remove</button>`;
-    bookItem.appendChild(item.cloneNode(true));
-    shelf.appendChild(bookItem);
+let savedData = localStorage.getItem('books');
+if (savedData === null) {
+  savedData = [];
+} else {
+  savedData = JSON.parse(savedData);
+}
+const books = new Books(savedData);
+books.displayBooks();
+const removeBook = (bookId) => books.remove(bookId);
+removeBook();
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('#form');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    books.add(title, author);
+    form.reset();
   });
-
-  const removeButton = Array.from(document.getElementsByClassName('remove-btn'));
-  Object.keys(removeButton).forEach((removeKey) => {
-    const btn = removeButton[removeKey];
-    btn.addEventListener('click', () => {
-      library.removeBook(btn.parentNode);
-    });
-  }, false);
-}
-
-display();
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  library.addBook();
-  display();
 });
