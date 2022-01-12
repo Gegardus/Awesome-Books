@@ -24,7 +24,7 @@ To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
 
-clone repo: `https://github.com/Gegardus/Awesome-Books/tree/plain`
+clone repo: `https://github.com/Gegardus/Awesome-Books/tree/refactor`
 
 then
 `cd Awesome-Books`
