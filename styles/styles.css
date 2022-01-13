@@ -44,9 +44,9 @@ h2 {
   font-size: 30px;
 }
 
-h3 {
+.contactInfoDiv li:first-child {
   font-size: 35px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   color: #e0ffff;
 }
 

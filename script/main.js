@@ -159,4 +159,3 @@ addNew.addEventListener('click', addNewOpen);
 contactInfo.addEventListener('click', contactInfoOpen);
 
 setInterval(() => {time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS)}`; }, 1);
-
