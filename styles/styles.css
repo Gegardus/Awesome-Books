@@ -44,7 +44,7 @@ h2 {
   font-size: 30px;
 }
 
-.contactInfoDiv li:first-child {
+h3 {
   font-size: 35px;
   margin-bottom: 40px;
   color: #e0ffff;
@@ -271,6 +271,12 @@ footer {
   font-size: 20px;
   font-weight: 600;
   margin-top: 15px;
+}
+
+.contactInfoDiv li:first-child {
+  font-size: 35px;
+  margin-bottom: 40px;
+  color: #e0ffff;
 }
 
 .pointer {
