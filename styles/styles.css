@@ -13,7 +13,7 @@ body {
   background-color: #504e4e;
   font-family: "Luxurious Roman", sans-serif;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
 span {
@@ -54,17 +54,17 @@ h4 {
   color: #000;
 }
 
+footer p {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2% 0;
+}
+
 .contactInfoDiv p {
   font-size: 30px;
   font-weight: 800;
   margin-bottom: 30px;
   color: #e0ffff;
-}
-
-footer p {
-  width: 80%;
-  margin: 0 auto;
-  padding: 2% 0;
 }
 
 .time-div {
@@ -73,7 +73,7 @@ footer p {
 }
 
 .time-div p {
-  color: #00ffff;
+  color: cyan;
   font-weight: 500;
   text-align: end;
   margin: 40px 100px 0 0;
@@ -118,11 +118,11 @@ footer p {
 }
 
 .book:nth-child(even) {
-  background-color: #e0ffee;;
+  background-color: #e0ffee;
 }
 
 .remove {
-  background-color: #663399;;
+  background-color: #5c2099;
   color: white;
   padding: 5px 10px;
   border: none;
@@ -134,7 +134,7 @@ footer p {
 }
 
 .remove:hover {
-  color: #663399;
+  color: #5c2099;
   background-color: #fff;
 }
 
@@ -233,7 +233,7 @@ footer {
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .closeActive {
@@ -242,7 +242,7 @@ footer {
   right: 30px;
   top: 30px;
   height: 40px;
-  width: 40px; 
+  width: 40px;
 }
 
 .navUlActive {
@@ -251,7 +251,7 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 10%;
-  width: 100%; 
+  width: 100%;
 }
 
 .navLiActive {

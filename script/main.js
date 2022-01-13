@@ -6,7 +6,7 @@ class Books {
   displayBooks() {
     const booksSection = document.querySelector('#bookItem');
     booksSection.innerHTML = '<h3>All awesome books</h3>';
-    this.savedData.forEach((book, index) => {    
+    this.savedData.forEach((book, index) => {
       booksSection.innerHTML += `
       <div class="book">
         <h4 class="title">"${book.title}" by ${book.author}</h4>
@@ -74,14 +74,6 @@ const contactInfoDiv = document.querySelector('.contactInfoDiv');
 const time = document.querySelector('.time');
 const { DateTime } = this.luxon;
 
-const mobileScreenNav = () => { 
-  navImg.classList.add('d-none');
-};
-
-const mobileScreenUl = () => {
-  navUl.classList.remove('d-none');
-};
-
 const navOpen = () => {
   container.classList.add('d-none');
   form.classList.add('d-none');
@@ -122,8 +114,8 @@ const navClose2 = () => {
   contactInfoDiv.style.display = 'none';
 };
 
-nav.addEventListener('click', navOpen);/////
-close.addEventListener('click', navClose);/////
+nav.addEventListener('click', navOpen);
+close.addEventListener('click', navClose);
 
 const bookList = document.getElementById('bookList');
 const addNew = document.getElementById('addNew');
@@ -141,7 +133,7 @@ const addNewOpen = () => {
 };
 
 const bookListOpen = () => {
-  navClose2();  
+  navClose2();
   form.classList.add('d-none');
   booksdiv.classList.remove('d-none');
   contactInfoDiv.style.display = 'none';
@@ -151,7 +143,7 @@ const bookListOpen = () => {
 };
 
 const contactInfoOpen = () => {
-  navClose2(); 
+  navClose2();
   contactInfoDiv.classList.remove('d-none');
   contactInfoDiv.style.display = 'flex';
   contactInfoDiv.classList.add('contactInfoActive');
@@ -167,3 +159,4 @@ addNew.addEventListener('click', addNewOpen);
 contactInfo.addEventListener('click', contactInfoOpen);
 
 setInterval(() => {time.innerHTML = `${DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS)}`; }, 1);
+
